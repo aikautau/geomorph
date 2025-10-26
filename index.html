@@ -10,12 +10,14 @@
 <body>
 <div id="app">
   <div id="map"></div>
-  <div class="header">
-    <span class="brand-dot"></span>
-    <h1>日本の地形学習マップ</h1>
-    <span class="badge">全国940地点</span>
-  </div>
   <div class="controls" role="region" aria-label="地形フィルタ">
+    <div class="title">
+      <span class="brand-dot"></span>
+      <div class="title-text">
+        <h1>日本の地形学習マップ</h1>
+        <span class="badge">全国940地点</span>
+      </div>
+    </div>
     <h2>しぼりこみ</h2>
     <div class="row">
       <select id="typeSelect" aria-label="地形タイプ">
@@ -26,9 +28,14 @@
       </select>
     </div>
     <div class="row">
+      <select id="vegSelect" aria-label="植生">
+        <option value="">植生（すべて）</option>
+      </select>
+    </div>
+    <div class="row">
       <input id="q" type="search" placeholder="名称・説明で検索" aria-label="検索">
       <button id="clearBtn" class="ghost">クリア</button>
-      <button id="shareBtn">共有</button>
+      <button id="shareBtn">検索</button>
     </div>
     <div class="row" style="margin:0">
       <small id="hits">表示: -- 件</small>
@@ -38,7 +45,6 @@
     <b>地形タイプ</b>
     <div id="legendColors" class="legend-row"></div>
   </div>
-  <footer class="credits">© OpenStreetMap contributors / Data: Japan Geomorph Study</footer>
 </div>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script type="module" src="./main.js"></script>
