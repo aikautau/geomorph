@@ -112,7 +112,12 @@ function matchFilters(f){
   const prefOk = state.pref ? p["都道府県"]===state.pref : true;
   const vegOk = state.veg ? p["植生"]===state.veg : true;
   const q = state.q.trim().toLowerCase();
-  const qOk = q ? ((p["名称"]||"")+ (p["地理的特徴・成り立ち"]||"")).toLowerCase().includes(q) : true;
+  const haystack = [
+    p["名称"]||"",
+    p["地理的特徴・成り立ち"]||"",
+    p["地形タイプ"]||""
+  ].join(" ").toLowerCase();
+  const qOk = q ? haystack.includes(q) : true;
   return typeOk && prefOk && vegOk && qOk;
 }
 

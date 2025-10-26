@@ -29,6 +29,8 @@ body{font-family:system-ui,-apple-system,'Hiragino Kaku Gothic ProN','Yu Gothic'
 }
 .controls h2{font-size:14px;margin:0 0 8px 0;color:#6b4e54}
 .row{display:flex; gap:8px; margin-bottom:8px; flex-wrap:wrap}
+.search-box{position:relative; flex:1; min-width:180px;}
+.search-box input{width:100%; padding-right:110px;}
 select,input[type="search"]{
   flex:1; padding:10px 12px; border-radius:12px; border:1px solid var(--muted);
   background:#fff; outline:none;
@@ -47,14 +49,21 @@ button.toggle{
 }
 .controls-body{display:flex; flex-direction:column; gap:0}
 .controls.collapsed .controls-body{display:none;}
+.hits-badge{
+  position:absolute; right:14px; top:50%; transform:translateY(-50%);
+  background:#fde7f0; color:var(--accent); font-size:11px;
+  padding:3px 8px; border-radius:999px; border:1px solid var(--muted);
+  pointer-events:none;
+  white-space:nowrap;
+}
 
 .badge{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:999px;border:1px solid var(--muted);font-size:12px}
 .legend{
-  position:absolute; left:12px; bottom:12px; z-index:1000;
-  background:var(--panel); border:1px solid var(--muted); border-radius:16px;
-  padding:10px; box-shadow:0 6px 20px #00000010; font-size:12px; max-width:320px;
+  margin-top:12px; background:var(--panel); border:1px solid var(--muted);
+  border-radius:16px; padding:10px; box-shadow:0 6px 20px #00000010;
+  font-size:12px;
 }
-.legend-row{display:flex;flex-wrap:wrap;gap:8px}
+.legend-row{display:flex;flex-wrap:wrap;gap:8px; margin-top:8px}
 .paint{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;border:1px solid #0003}
 @media (max-width:720px){
   .controls{width:calc(100vw - 24px)}

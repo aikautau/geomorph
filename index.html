@@ -17,7 +17,7 @@
         <span class="brand-dot"></span>
         <div class="title-text">
           <h1>日本の地形学習マップ</h1>
-          <span class="badge">全国940地点</span>
+          <span class="badge">全国881地点</span>
         </div>
       </div>
       <h2>しぼりこみ</h2>
@@ -35,18 +35,18 @@
         </select>
       </div>
       <div class="row">
-        <input id="q" type="search" placeholder="名称・説明で検索" aria-label="検索">
+        <div class="search-box">
+          <input id="q" type="search" placeholder="名称・説明・地形タイプで検索" aria-label="検索">
+          <span id="hits" class="hits-badge">表示: -- 件</span>
+        </div>
         <button id="clearBtn" class="ghost">クリア</button>
         <button id="shareBtn">検索</button>
       </div>
-      <div class="row" style="margin:0">
-        <small id="hits">表示: -- 件</small>
+      <div class="legend" aria-label="凡例">
+        <b>地形タイプ</b>
+        <div id="legendColors" class="legend-row"></div>
       </div>
     </div>
-  </div>
-  <div class="legend" aria-label="凡例">
-    <b>地形タイプ</b>
-    <div id="legendColors" class="legend-row"></div>
   </div>
 </div>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
