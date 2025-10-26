@@ -32,13 +32,34 @@ const els = {
   share: document.getElementById('shareBtn'),
   hits: document.getElementById('hits'),
   legend: document.getElementById('legendColors'),
+  toggle: document.getElementById('toggleFilters'),
 };
+const controlsPanel = document.querySelector('.controls');
 
 // build legend
 els.legend.innerHTML = typeOrder.map(t=>`<span class="badge"><span class="paint" style="background:${colorByType(t)}"></span>${t}</span>`).join(' ');
 
 let layer;
 let dataCache = null;
+
+if (els.toggle && controlsPanel) {
+  let filtersOpen = true;
+  const isMobile = window.matchMedia('(max-width: 720px)').matches;
+  if (isMobile) {
+    filtersOpen = false;
+    controlsPanel.classList.add('collapsed');
+  }
+  const updateToggleLabel = ()=>{
+    els.toggle.textContent = filtersOpen ? "フィルタを隠す" : "フィルタを表示";
+    els.toggle.setAttribute('aria-expanded', filtersOpen);
+  };
+  updateToggleLabel();
+  els.toggle.addEventListener('click', ()=>{
+    filtersOpen = !filtersOpen;
+    controlsPanel.classList.toggle('collapsed', !filtersOpen);
+    updateToggleLabel();
+  });
+}
 
 fetch('./assets/data.geojson').then(r=>r.json()).then(gj=>{
   dataCache = gj;

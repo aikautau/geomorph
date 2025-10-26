@@ -11,34 +11,37 @@
 <div id="app">
   <div id="map"></div>
   <div class="controls" role="region" aria-label="地形フィルタ">
-    <div class="title">
-      <span class="brand-dot"></span>
-      <div class="title-text">
-        <h1>日本の地形学習マップ</h1>
-        <span class="badge">全国940地点</span>
+    <button id="toggleFilters" class="toggle" aria-expanded="true" aria-controls="filterContents">フィルタを隠す</button>
+    <div id="filterContents" class="controls-body">
+      <div class="title">
+        <span class="brand-dot"></span>
+        <div class="title-text">
+          <h1>日本の地形学習マップ</h1>
+          <span class="badge">全国940地点</span>
+        </div>
       </div>
-    </div>
-    <h2>しぼりこみ</h2>
-    <div class="row">
-      <select id="typeSelect" aria-label="地形タイプ">
-        <option value="">地形タイプ（すべて）</option>
-      </select>
-      <select id="prefSelect" aria-label="都道府県">
-        <option value="">都道府県（すべて）</option>
-      </select>
-    </div>
-    <div class="row">
-      <select id="vegSelect" aria-label="植生">
-        <option value="">植生（すべて）</option>
-      </select>
-    </div>
-    <div class="row">
-      <input id="q" type="search" placeholder="名称・説明で検索" aria-label="検索">
-      <button id="clearBtn" class="ghost">クリア</button>
-      <button id="shareBtn">検索</button>
-    </div>
-    <div class="row" style="margin:0">
-      <small id="hits">表示: -- 件</small>
+      <h2>しぼりこみ</h2>
+      <div class="row">
+        <select id="typeSelect" aria-label="地形タイプ">
+          <option value="">地形タイプ（すべて）</option>
+        </select>
+        <select id="prefSelect" aria-label="都道府県">
+          <option value="">都道府県（すべて）</option>
+        </select>
+      </div>
+      <div class="row">
+        <select id="vegSelect" aria-label="植生">
+          <option value="">植生（すべて）</option>
+        </select>
+      </div>
+      <div class="row">
+        <input id="q" type="search" placeholder="名称・説明で検索" aria-label="検索">
+        <button id="clearBtn" class="ghost">クリア</button>
+        <button id="shareBtn">検索</button>
+      </div>
+      <div class="row" style="margin:0">
+        <small id="hits">表示: -- 件</small>
+      </div>
     </div>
   </div>
   <div class="legend" aria-label="凡例">
